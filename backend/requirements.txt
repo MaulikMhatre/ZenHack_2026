@@ -1,9 +1,34 @@
+# --- Core Web Framework & Server ---
 fastapi
-uvicorn
+uvicorn[standard]
+python-multipart
+python-dotenv
+httpx
+
+# --- Database & Security ---
+sqlalchemy
+passlib[bcrypt]
+python-jose[cryptography]
+alembic
+
+# --- Clinical AI & LLM (Triage) ---
+langchain-google-genai
+langchain-core
+pydantic
+
+# --- Predictive Engine (Inflow) ---
+xgboost
 pandas
 numpy
 scikit-learn
-python-multipart
-httpx
-websockets
-python-dotenv
+
+# --- Radiology Sentinel (Computer Vision) ---
+torch
+torchvision
+torchxrayvision
+scikit-image
+pydicom
+
+# --- Utilities ---
+simple-icd-10
+matplotlib
