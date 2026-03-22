@@ -2188,27 +2188,27 @@ def initialize_hospital_beds(db: Session):
         for i in range(1, count + 1):
             bid = f"{prefix}-{i}"
             if not db.query(models.BedModel).filter(models.BedModel.id == bid).first():
-                db.add(models.BedModel(id=bid, type=unit, billing_category=unit, gender="Any", is_occupied=False, status="AVAILABLE"))
+                db.add(models.BedModel(id=bid, type=unit, unit=unit, gender="Any", is_occupied=False, status="AVAILABLE"))
 
     # 2. Seed 100 Ward Beds with Zone Distribution
     if db.query(models.BedModel).filter(models.BedModel.type == "Wards").count() == 0:
         # Medical Ward (40: 20M/20F)
         for i in range(1, 21):
-            db.add(models.BedModel(id=f"WARD-MED-M-{i}", type="Wards", billing_category="Medical Ward", gender="M"))
-            db.add(models.BedModel(id=f"WARD-MED-F-{i}", type="Wards", billing_category="Medical Ward", gender="F"))
+            db.add(models.BedModel(id=f"WARD-MED-M-{i}", type="Wards", unit="Medical Ward", gender="M"))
+            db.add(models.BedModel(id=f"WARD-MED-F-{i}", type="Wards", unit="Medical Ward", gender="F"))
         
         # Specialty (30: 15 Ped / 15 Mat)
         for i in range(1, 16):
-            db.add(models.BedModel(id=f"WARD-PED-{i}", type="Wards", billing_category="Pediatric", gender="Any"))
-            db.add(models.BedModel(id=f"WARD-MAT-{i}", type="Wards", billing_category="Maternity", gender="F"))
+            db.add(models.BedModel(id=f"WARD-PED-{i}", type="Wards", unit="Pediatric", gender="Any"))
+            db.add(models.BedModel(id=f"WARD-MAT-{i}", type="Wards", unit="Maternity", gender="F"))
             
         # Recovery & Security (30)
         for i in range(1, 11):
-            db.add(models.BedModel(id=f"WARD-HDU-{i}", type="Wards", billing_category="HDU", gender="Any"))
-            db.add(models.BedModel(id=f"WARD-DC-{i}", type="Wards", billing_category="Day Care", gender="Any"))
+            db.add(models.BedModel(id=f"WARD-HDU-{i}", type="Wards", unit="HDU", gender="Any"))
+            db.add(models.BedModel(id=f"WARD-DC-{i}", type="Wards", unit="Day Care", gender="Any"))
         for i in range(1, 6):
-            db.add(models.BedModel(id=f"WARD-ISO-{i}", type="Wards", billing_category="Isolation", gender="Any"))
-            db.add(models.BedModel(id=f"WARD-SEMIP-{i}", type="Wards", billing_category="Semi-Private", gender="Any"))
+            db.add(models.BedModel(id=f"WARD-ISO-{i}", type="Wards", unit="Isolation", gender="Any"))
+            db.add(models.BedModel(id=f"WARD-SEMIP-{i}", type="Wards", unit="Semi-Private", gender="Any"))
     
     db.commit()
 
