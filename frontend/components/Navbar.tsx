@@ -29,6 +29,7 @@ const Navbar = () => {
     { name: 'OPD', href: '/queue', icon: Stethoscope, roles: ['Admin', 'Doctor', 'Nurse'] },
     { name: 'Triage', href: '/triage', icon: Stethoscope, roles: ['Admin', 'Doctor', 'Nurse'] },
     { name: 'Admin', href: '/admin', icon: Settings, roles: ['Admin', 'Doctor'] },
+    { name: 'Radiology', href: '/radiology', icon: Clock, roles: ['Admin'] },
     { name: 'History', href: '/history', icon: Clock, roles: ['Admin'] },
     { name: 'Staff', href: '/staff', icon: Users, roles: ['Admin', 'Doctor', 'Nurse'] },
     { name: 'Smart Nursing', href: '/staff/worklist', icon: ClipboardCheck, roles: ['Admin', 'Doctor', 'Nurse'] }
@@ -64,10 +65,10 @@ const Navbar = () => {
               <Activity className="w-5 h-5 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-black tracking-tighter uppercase italic leading-none text-foreground">
+              <span className="text-lg font-black tracking-tighter uppercase text-white italic leading-none text-foreground">
                 Phrelis <span className="text-indigo-600 dark:text-indigo-400">OS</span>
               </span>
-              <span className="text-[9px] font-bold text-muted-foreground tracking-[0.3em] uppercase mt-1">
+              <span className="text-[9px] text-indigo-600 font-bold text-muted-foreground tracking-[0.3em] uppercase mt-1">
                 Intelligence v2.4
               </span>
             </div>

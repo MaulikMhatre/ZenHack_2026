@@ -103,11 +103,31 @@ const MindPredictions = () => {
           <div className="space-y-5">
              <div className="flex justify-between items-center border-b border-border pb-3">
                 <span className="text-xs font-bold text-muted-foreground">Weather Multiplier</span>
-                <span className="text-amber-500 font-black tracking-tighter text-lg">{data?.weather_impact?.multiplier || '1.0'}x</span>
+                <span className={`font-black tracking-tighter text-lg ${
+  Number(data?.weather_impact?.multiplier) >= 1.5 
+    ? 'text-rose-500' 
+    : Number(data?.weather_impact?.multiplier) > 1 
+      ? 'text-amber-500' 
+      : 'text-emerald-500'
+}`}>
+  {data?.weather_impact?.multiplier || '1.0'}x
+</span>
              </div>
              <div className="flex justify-between items-center border-b border-border pb-3">
                 <span className="text-xs font-bold text-muted-foreground">Systemic Saturation</span>
-                <span className="text-amber-500 font-black tracking-tighter text-lg">{data?.factors?.systemic_saturation || '1.0x'}</span>
+<span className={`font-black tracking-tighter text-lg ${
+  (() => {
+    const val = parseFloat(String(data?.factors?.systemic_saturation));
+    // Debugging: check your browser console (F12) to see this output
+    console.log("Phrelis Debug - Saturation Value:", val); 
+    
+    if (val >= 1.5) return 'text-rose-500 shadow-[0_0_10px_rgba(244,63,94,0.2)]';
+    if (val > 1.0) return 'text-amber-500';
+    return 'text-emerald-500';
+  })()
+}`}>
+  {data?.factors?.systemic_saturation || '1.0'}
+</span>
              </div>
           </div>
           <div className="mt-8 p-3 bg-primary/5 rounded-xl border border-primary/10 text-[10px] font-bold text-primary italic">
