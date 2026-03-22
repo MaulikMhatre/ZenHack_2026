@@ -19,12 +19,13 @@
   --accent-foreground: #ffffff;
   --indigo-glow: rgba(99, 102, 241, 0.15);
   --border: #1e293b; 
+  --inflow-bg: #1f0830;
 }
 
 .light {
   /* LIGHT MODE OVERRIDES */
   --background: #f8fafc; /* Light Slate */
-  --foreground: #0f172a; /* Dark Slate */
+  --foreground: #142345; /* Dark Slate */
   --sidebar-bg: #f1f5f9;
   --card-bg: #ffffff;
   --primary: #4f46e5; /* Slightly deeper indigo for contrast */
@@ -36,6 +37,7 @@
   --indigo-glow: rgba(99, 102, 241, 0.05);
   --border: #e2e8f0;
   --elevation: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  --inflow-bg: #ffffff;
 }
 
 @theme inline {
@@ -51,6 +53,7 @@
   --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-inflow: var(--inflow-bg);
 }
 
 /* --- BASE STYLES --- */
